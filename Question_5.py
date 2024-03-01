@@ -1,4 +1,3 @@
-
 def count_bBob_occurrences(text):
     count = 0
     # The length of the pattern we're looking for is at least 4 ("bBob")
