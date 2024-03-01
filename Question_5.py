@@ -1,20 +1,14 @@
-def find_b_bob_occurrences(text):
-    # Initialize a count variable to keep track of matches
+
+def count_bBob_occurrences(text):
     count = 0
-
-    # Convert the text to lowercase to make the search case-insensitive
-    text = text.lower()
-
-    # Loop through each character in the text
-    for i in range(len(text)):
-        # Check if the current character is 'b'
-        if text[i] == 'b':
-            # Look ahead in the text for the substring ending with "bob"
-            # We use a loop to check each subsequent character until we find "bob"
-            for j in range(i + 1, len(text)):
-                # If we find a substring that ends with "bob", increase the count
-                if text[j:j + 3] == 'bob':
-                    count += 1
-                    break  # Exit the inner loop once a match is found
-
+    # The length of the pattern we're looking for is at least 4 ("bBob")
+    for i in range(len(text) - 3):
+        # Check if the current substring starts with 'b' and ends with 'Bob'
+        if text[i] == 'b' and text[i+1:i+4] == 'Bob':
+            count += 1
     return count
+
+# Example usage
+text = "bBob is talking to bBobby and then bBob walks away."
+matches = count_bBob_occurrences(text)
+print(matches)
